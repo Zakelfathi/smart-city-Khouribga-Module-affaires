@@ -13,7 +13,7 @@ public class ville {
     private String province;
     private String pays;
     private int population;
-    @OneToMany(mappedBy = "ville")
+    @OneToMany(mappedBy = "ville", fetch = FetchType.LAZY)
     private List<organisme> organismes;
 
     public ville() {
