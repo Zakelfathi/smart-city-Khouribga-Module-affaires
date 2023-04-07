@@ -13,12 +13,13 @@ public class organisme {
     String nom;
     String description;
     String adresse;
+    @Temporal(TemporalType.DATE)
     Date dateCreation;
     String email;
     String tel;
     String siteweb;
     String logo;
-    @OneToMany
+    @OneToMany(mappedBy = "organisme")
     List<photo> photos;
     @ManyToOne
     ville ville;

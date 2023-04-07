@@ -9,4 +9,6 @@ public class photo {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String url;
+    @ManyToOne
+    organisme organisme;
 }
