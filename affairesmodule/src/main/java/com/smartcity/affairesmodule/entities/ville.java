@@ -28,6 +28,15 @@ public class ville {
         this.organismes = organismes;
     }
 
+    public ville(String nom, String province, String pays, int population) {
+        this.id = id;
+        this.nom = nom;
+        this.province = province;
+        this.pays = pays;
+        this.population = population;
+        this.organismes = organismes;
+    }
+
     public Long getId() {
         return id;
     }
