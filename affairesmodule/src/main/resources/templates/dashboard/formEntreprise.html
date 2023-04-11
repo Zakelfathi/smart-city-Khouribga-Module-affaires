@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}"
+      layout:decorator="dashboard/layout">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    
+</head>
+<body>
+  <div layout:fragment="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3" th:text="${title}"></h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+
+          <div class="container p-4">
+            <form th:action="@{saveEntreprise}" method="POST">
+              <div class="row p-1">
+                <div class="input-group input-group-outline">
+                  <input type="text" hidden class="form-control" name="ville" value="1">
+                  <input type="text" hidden name="id" th:value="${entreprise.id}">
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="nom" th:value="${entreprise.nom}" placeholder="Nom de l'entreprise">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="number" class="form-control" name="chiffreAffaires" th:value="${entreprise.chiffreAffaires}" min="0" placeholder="Chiffre d'affaires (en milliard de $)">
+                  </div>
+                </div>
+              </div>
+              <div class="row p-1">
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="description" th:value="${entreprise.description}" placeholder="Description">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="formJuridique" th:value="${entreprise.formJuridique}" placeholder="Forme juridique">
+                  </div>
+                </div>
+              </div>
+              <div class="row p-1">
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="adresse" th:value="${entreprise.adresse}" placeholder="Adresse">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="siteweb" th:value="${entreprise.siteweb}" placeholder="Site web">
+                  </div>
+                </div>
+              </div>
+              <div class="row p-1">
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="tel" th:value="${entreprise.tel}" placeholder="Tél">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="email" class="form-control" name="email" th:value="${entreprise.email}" placeholder="Email">
+                  </div>
+                </div>
+              </div>
+              <div class="row p-1">
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="text" class="form-control" name="secteurActivite" th:value="${entreprise.secteurActivite}" placeholder="Secteur d'activité">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="number" class="form-control" name="nombreEmployes" th:value="${entreprise.nombreEmployes}" min="1" placeholder="Effectif">
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2 p-1">
+                <div class="col-md-12">
+                  <button class="btn btn-outline-info btn-sm mb-0 me-3">Enregistrer</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

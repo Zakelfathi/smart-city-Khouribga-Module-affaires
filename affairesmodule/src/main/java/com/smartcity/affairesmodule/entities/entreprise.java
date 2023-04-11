@@ -7,6 +7,7 @@ import java.util.List;
 @Entity
 public class entreprise extends organisme {
 
+    String formJuridique;
     String secteurActivite;
     Double chiffreAffaires;
     int nombreEmployes;
@@ -14,10 +15,19 @@ public class entreprise extends organisme {
     public entreprise() {
     }
 
-    public entreprise(String secteurActivite, Double chiffreAffaires, int nombreEmployes) {
+    public entreprise(String formJuridique, String secteurActivite, Double chiffreAffaires, int nombreEmployes) {
+        this.formJuridique = formJuridique;
         this.secteurActivite = secteurActivite;
         this.chiffreAffaires = chiffreAffaires;
         this.nombreEmployes = nombreEmployes;
+    }
+
+    public String getFormJuridique() {
+        return formJuridique;
+    }
+
+    public void setFormJuridique(String formJuridique) {
+        this.formJuridique = formJuridique;
     }
 
     public String getSecteurActivite() {
