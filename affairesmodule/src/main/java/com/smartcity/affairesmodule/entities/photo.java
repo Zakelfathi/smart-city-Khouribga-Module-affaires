@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class photo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long id_photo;
     String url;
     @ManyToOne
     organisme organisme;
@@ -16,17 +16,17 @@ public class photo {
     }
 
     public photo(Long id, String url, com.smartcity.affairesmodule.entities.organisme organisme) {
-        this.id = id;
+        this.id_photo = id;
         this.url = url;
         this.organisme = organisme;
     }
 
     public Long getId() {
-        return id;
+        return id_photo;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.id_photo = id;
     }
 
     public String getUrl() {

@@ -8,7 +8,7 @@ import java.util.List;
 public class ville {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_ville;
     private String nom;
     private String province;
     private String pays;
@@ -20,7 +20,7 @@ public class ville {
     }
 
     public ville(Long id, String nom, String province, String pays, int population, List<organisme> organismes) {
-        this.id = id;
+        this.id_ville = id;
         this.nom = nom;
         this.province = province;
         this.pays = pays;
@@ -29,20 +29,18 @@ public class ville {
     }
 
     public ville(String nom, String province, String pays, int population) {
-        this.id = id;
         this.nom = nom;
         this.province = province;
         this.pays = pays;
         this.population = population;
-        this.organismes = organismes;
     }
 
     public Long getId() {
-        return id;
+        return id_ville;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.id_ville = id;
     }
 
     public String getNom() {

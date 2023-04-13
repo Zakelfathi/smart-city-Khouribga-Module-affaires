@@ -11,4 +11,8 @@ public interface EntrepriseRepository extends JpaRepository<entreprise, Long> {
 
     @Query("select e from entreprise e where e.nom like :x")
     public Page chercher(@Param("x") String nom, Pageable pageable);
+
+
+
+
 }

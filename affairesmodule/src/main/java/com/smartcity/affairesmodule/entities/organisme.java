@@ -9,7 +9,7 @@ import java.util.List;
 public class organisme {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long id_organisme;
     String nom;
     String description;
     String adresse;
@@ -28,7 +28,7 @@ public class organisme {
     }
 
     public organisme(Long id, String nom, String description, String adresse, Date dateCreation, String email, String tel, String siteweb, String logo, List<photo> photos, com.smartcity.affairesmodule.entities.ville ville) {
-        this.id = id;
+        this.id_organisme = id;
         this.nom = nom;
         this.description = description;
         this.adresse = adresse;
@@ -42,11 +42,11 @@ public class organisme {
     }
 
     public Long getId() {
-        return id;
+        return id_organisme;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.id_organisme = id;
     }
 
     public String getNom() {
