@@ -1,15 +1,15 @@
 package com.smartcity.affairesmodule.repositories;
 
-import com.smartcity.affairesmodule.entities.entreprise;
+import com.smartcity.affairesmodule.entities.centreAffaires;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface EntrepriseRepository extends JpaRepository<entreprise, Long> {
+public interface CentreAffaireRepository extends JpaRepository<centreAffaires, Long> {
 
-    @Query("select e from entreprise e where e.nom like :x")
+    @Query("select c from centreAffaires c where c.nom like :x")
     public Page chercher(@Param("x") String nom, Pageable pageable);
 
 
