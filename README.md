@@ -34,6 +34,3 @@ Les contributions à ce module sont les bienvenues. Si vous souhaitez contribuer
 3. Effectuer les modifications souhaitées.
 4. Faire une demande de fusion vers la branche main du dépôt d'origine.
 
-## Licence
-
-Ce module est sous licence MIT. Veuillez consulter le fichier LICENSE pour plus d'informations.
