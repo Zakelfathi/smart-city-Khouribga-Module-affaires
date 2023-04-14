@@ -5,20 +5,31 @@ import javax.persistence.Entity;
 @Entity
 public class organisation extends organisme {
 
-    String secteurActivite;
+    private int numberMembers;
+
+    private String mission;
+
+    public String getMission() {
+        return mission;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
 
     public organisation() {
     }
 
-    public organisation(String secteurActivite) {
-        this.secteurActivite = secteurActivite;
+    public organisation(int numberMembers, String mission) {
+        this.numberMembers = numberMembers;
+        this.mission = mission;
     }
 
-    public String getSecteurActivite() {
-        return secteurActivite;
+    public int getNumberMembers() {
+        return numberMembers;
     }
 
-    public void setSecteurActivite(String secteurActivite) {
-        this.secteurActivite = secteurActivite;
+    public void setNumberMembers(int numberMembers) {
+        this.numberMembers = numberMembers;
     }
 }

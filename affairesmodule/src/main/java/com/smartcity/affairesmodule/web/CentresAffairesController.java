@@ -32,6 +32,7 @@ public class CentresAffairesController {
         model.addAttribute("size",size);
         model.addAttribute("pageCourante", page);
         model.addAttribute("nom", nom);
+        model.addAttribute("activePage", "centres-affaires");
         return "dashboard/listCentresAffaires";
     }
 
@@ -39,6 +40,7 @@ public class CentresAffairesController {
     public String formCentreAffaire(Model model){
         model.addAttribute("centreAffaires", new centreAffaires());
         model.addAttribute("title", "Ajouter Centre Affaires");
+        model.addAttribute("activePage", "centres-affaires");
         return "dashboard/formCentreAffaires";
     }
 
@@ -53,6 +55,7 @@ public class CentresAffairesController {
         centreAffaires centreAffaires = centreAffaireRepository.getById(id);
         model.addAttribute("centreAffaires", centreAffaires);
         model.addAttribute("title", "Modifier Centre Affaires");
+        model.addAttribute("activePage", "centres-affaires");
         return "dashboard/formCentreAffaires";
     }
 
