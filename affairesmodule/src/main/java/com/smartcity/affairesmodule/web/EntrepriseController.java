@@ -31,6 +31,7 @@ public class EntrepriseController {
         model.addAttribute("size",size);
         model.addAttribute("pageCourante", page);
         model.addAttribute("nom", nom);
+        model.addAttribute("activePage", "entreprises");
         return "dashboard/listEntreprises";
     }
 
@@ -38,6 +39,7 @@ public class EntrepriseController {
     public String formEntreprise(Model model){
         model.addAttribute("entreprise", new entreprise());
         model.addAttribute("title", "Ajouter Entreprise");
+        model.addAttribute("activePage", "entreprises");
         return "dashboard/formEntreprise";
     }
 
@@ -52,6 +54,7 @@ public class EntrepriseController {
         entreprise entreprise = entrepriseRepository.getById(id);
         model.addAttribute("entreprise", entreprise);
         model.addAttribute("title", "Modifier Entreprise");
+        model.addAttribute("activePage", "entreprises");
         return "dashboard/formEntreprise";
     }
 

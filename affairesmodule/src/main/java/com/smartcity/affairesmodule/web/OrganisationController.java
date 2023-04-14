@@ -31,6 +31,7 @@ public class OrganisationController {
         model.addAttribute("size",size);
         model.addAttribute("pageCourante", page);
         model.addAttribute("nom", nom);
+        model.addAttribute("activePage", "organisations");
         return "dashboard/listOrganisations";
     }
 
@@ -38,6 +39,7 @@ public class OrganisationController {
     public String formOrganisation(Model model){
         model.addAttribute("organisation", new organisation());
         model.addAttribute("title", "Ajouter Organisation");
+        model.addAttribute("activePage", "organisations");
         return "dashboard/formOrganisation";
     }
 
@@ -52,6 +54,7 @@ public class OrganisationController {
         organisation organisation = organisationRepository.getById(id);
         model.addAttribute("organisation", organisation);
         model.addAttribute("title", "Modifier Organisation");
+        model.addAttribute("activePage", "organisations");
         return "dashboard/formOrganisation";
     }
 
