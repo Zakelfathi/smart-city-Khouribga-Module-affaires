@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/layout}"
       layout:decorator="dashboard/layout">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>DASHBOARD</title>
 </head>
-<body>
-    <div layout:fragment="content">
 
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">weekend</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">ENTREPRISES</p>
+                        <h4 class="mb-0"><span th:text="${numberOfEnterprises}"></span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">ORGANISMES</p>
+                        <h4 class="mb-0"><span th:text="${numberOfOrganisms}"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Highest CA</p>
+                        <h4 class="mb-0"> <span id="highest-chiffre-affaires" th:text="${highestChiffreAffaires}"></span></h4>
+<!--                        <p class="mb-0"><span th:text="${highestChiffreAffairesOrganisme}></span></p>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">weekend</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">POPULATION</p>
+                        <h4 class="mb-0">$103,430</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
 </body>
+
 </html>
