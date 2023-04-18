@@ -53,4 +53,12 @@ public class entreprise extends organisme {
     public void setNombreEmployes(int nombreEmployes) {
         this.nombreEmployes = nombreEmployes;
     }
+
+    @Transient
+    public String getLogoPath() {
+        if(logo == null || id_organisme == null) {
+            return null;
+        }
+        return "../../../../images/Entreprises/"+id_organisme+"/"+logo;
+    }
 }
