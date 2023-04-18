@@ -64,9 +64,7 @@
                                 <td>
                                     <div class="d-flex px-2">
                                         <div>
-                                            <img src="../../static/img/small-logos/logo-asana.svg"
-                                                 th:src="@{/img/small-logos/logo-asana.svg}"
-                                                 class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                                            <img th:src="@{${c.logoPath}}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                                         </div>
                                         <div class="my-auto">
                                             <h6 class="mb-0 text-sm" th:text="${c.nom}"></h6>
@@ -103,7 +101,7 @@
                     <div class="container">
                         <ul class="nav">
                             <li th:each="page,status:${pages}">
-                                <a th:href="@{entreprises(page=${status.index},size=${size},nom=${nom})}"
+                                <a th:href="@{centres-affaires(page=${status.index},size=${size},nom=${nom})}"
                                    th:text="${status.index}"
                                    th:class="${pageCourante}==${status.index}?'btn btn-gradient-info active':'btn btn-link'"></a>
                             </li>
