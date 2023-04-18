@@ -1,5 +1,6 @@
 package com.smartcity.affairesmodule.web;
 
+import com.smartcity.affairesmodule.entities.centreAffaires;
 import com.smartcity.affairesmodule.entities.organisation;
 import com.smartcity.affairesmodule.repositories.OrganisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Controller
 public class OrganisationController {
@@ -44,8 +54,28 @@ public class OrganisationController {
     }
 
     @RequestMapping(value = "/admin/saveOrganisation", method = RequestMethod.POST)
-    public String saveOrganisation(Model model, organisation organisation) {
-        organisationRepository.save(organisation);
+    public String saveOrganisation(Model model, organisation organisation, @RequestParam("photo") MultipartFile multipartFile) throws IOException {
+        if(!multipartFile.isEmpty()) {
+            String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            organisation.setLogo(fileName);
+            organisation sevedOrganisation = organisationRepository.save(organisation);
+            String uploadDir = "./images/Organisations/" + sevedOrganisation.getId();
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                try {
+                    Files.createDirectories(uploadPath);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (InputStream inputStream = multipartFile.getInputStream()) {
+                Path filePath = uploadPath.resolve(fileName);
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new IOException("Could not save uploaded file : " + fileName);
+            }
+        }else
+            organisationRepository.save(organisation);
         return "redirect:/admin/organisations";
     }
 
