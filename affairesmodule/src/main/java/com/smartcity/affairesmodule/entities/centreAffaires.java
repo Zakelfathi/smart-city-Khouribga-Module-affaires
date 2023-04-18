@@ -1,6 +1,7 @@
 package com.smartcity.affairesmodule.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 @Entity
 public class centreAffaires extends organisme {
@@ -30,5 +31,13 @@ public class centreAffaires extends organisme {
 
     public void setTarifHoraire(double tarifHoraire) {
         this.tarifHoraire = tarifHoraire;
+    }
+
+    @Transient
+    public String getLogoPath() {
+        if(logo == null || id_organisme == null) {
+            return null;
+        }
+        return "../../../../images/CentresAffaires/"+id_organisme+"/"+logo;
     }
 }

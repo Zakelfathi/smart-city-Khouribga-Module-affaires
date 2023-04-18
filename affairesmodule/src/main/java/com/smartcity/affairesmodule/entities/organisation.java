@@ -1,6 +1,7 @@
 package com.smartcity.affairesmodule.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 @Entity
 public class organisation extends organisme {
@@ -31,5 +32,13 @@ public class organisation extends organisme {
 
     public void setNumberMembers(int numberMembers) {
         this.numberMembers = numberMembers;
+    }
+
+    @Transient
+    public String getLogoPath() {
+        if(logo == null || id_organisme == null) {
+            return null;
+        }
+        return "../../../../images/Organisations/"+id_organisme+"/"+logo;
     }
 }

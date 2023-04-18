@@ -34,6 +34,7 @@ public class AffairesmoduleApplication {
 			e.setChiffreAffaires(11040000000.0);
 			e.setNombreEmployes(20980);
 			e.setSecteurActivite("Industrielle");
+			e.setLogo("logo.png");
 			entrepriseRepository.save(e);
 
 			entreprise entreprise1 = new entreprise();
@@ -47,6 +48,7 @@ public class AffairesmoduleApplication {
 			entreprise1.setChiffreAffaires(168100000000.0);
 			entreprise1.setNombreEmployes(181000);
 			entreprise1.setSecteurActivite("Technologie");
+			entreprise1.setLogo("logo.png");
 			entrepriseRepository.save(entreprise1);
 
 			entreprise entreprise2 = new entreprise();
@@ -60,6 +62,7 @@ public class AffairesmoduleApplication {
 			entreprise2.setChiffreAffaires(274500000000.0);
 			entreprise2.setNombreEmployes(147000);
 			entreprise2.setSecteurActivite("Technologie");
+			entreprise2.setLogo("logo.png");
 			entrepriseRepository.save(entreprise2);
 
 			entreprise entreprise3 = new entreprise();
@@ -73,6 +76,7 @@ public class AffairesmoduleApplication {
 			entreprise3.setChiffreAffaires(386000000000.0);
 			entreprise3.setNombreEmployes(1173000);
 			entreprise3.setSecteurActivite("Commerce électronique");
+			entreprise3.setLogo("logo.png");
 			entrepriseRepository.save(entreprise3);
 
 			entreprise entreprise4 = new entreprise();
@@ -86,6 +90,7 @@ public class AffairesmoduleApplication {
 			entreprise4.setChiffreAffaires(181690000000.0);
 			entreprise4.setNombreEmployes(139995);
 			entreprise4.setSecteurActivite("Technologie");
+			entreprise4.setLogo("logo.png");
 			entrepriseRepository.save(entreprise4);
 
 			entreprise entreprise5 = new entreprise();
@@ -99,6 +104,7 @@ public class AffairesmoduleApplication {
 			entreprise5.setChiffreAffaires(181690000000.0);
 			entreprise5.setNombreEmployes(139995);
 			entreprise5.setSecteurActivite("Technologie");
+			entreprise5.setLogo("logo.png");
 			entrepriseRepository.save(entreprise5);
 		};
 	}

@@ -6,10 +6,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.smartcity.affairesmodule.entities.entreprise;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.Clock;
+import java.util.Objects;
 
 @Controller
 public class EntrepriseController {
@@ -44,8 +55,29 @@ public class EntrepriseController {
     }
 
     @RequestMapping(value = "/admin/saveEntreprise", method = RequestMethod.POST)
-    public String saveEntreprise(Model model, entreprise entreprise) {
-        entrepriseRepository.save(entreprise);
+    public String saveEntreprise(Model model, entreprise entreprise, @RequestParam("photo") MultipartFile multipartFile) throws IOException {
+        if(!multipartFile.isEmpty()) {
+            String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            entreprise.setLogo(fileName);
+            entreprise sevedEntreprise = entrepriseRepository.save(entreprise);
+            String uploadDir = "./images/Entreprises/" + sevedEntreprise.getId();
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                try {
+                    Files.createDirectories(uploadPath);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (InputStream inputStream = multipartFile.getInputStream()) {
+                Path filePath = uploadPath.resolve(fileName);
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new IOException("Could not save uploaded file : " + fileName);
+            }
+        }
+        else
+            entrepriseRepository.save(entreprise);
         return "redirect:/admin/entreprises";
     }
 

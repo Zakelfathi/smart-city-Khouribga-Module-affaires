@@ -22,11 +22,12 @@
         <div class="card-body px-0 pb-2">
 
           <div class="container p-4">
-            <form th:action="@{saveCentreAffaires}" method="POST">
+            <form th:action="@{saveCentreAffaires}" method="POST" enctype="multipart/form-data">
               <div class="row p-1">
                 <div class="input-group input-group-outline">
                   <input type="text" hidden class="form-control" name="ville" value="1">
                   <input type="text" hidden name="id" th:value="${centreAffaires.id}">
+                  <input type="text" hidden name="logo" th:value="${centreAffaires.logo}">
                 </div>
                 <div class="col-md-6">
                   <div class="input-group input-group-outline">
@@ -72,6 +73,13 @@
                 <div class="col-md-6">
                   <div class="input-group input-group-outline">
                     <input type="email" class="form-control" name="email" th:value="${centreAffaires.email}" placeholder="Email">
+                  </div>
+                </div>
+              </div>
+              <div class="row p-1">
+                <div class="col-md-6">
+                  <div class="input-group input-group-outline">
+                    <input type="file" class="form-control" name="photo" accept="image/png, image/jpeg"/>
                   </div>
                 </div>
               </div>
