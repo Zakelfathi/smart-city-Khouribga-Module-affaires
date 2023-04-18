@@ -56,24 +56,28 @@ public class EntrepriseController {
 
     @RequestMapping(value = "/admin/saveEntreprise", method = RequestMethod.POST)
     public String saveEntreprise(Model model, entreprise entreprise, @RequestParam("photo") MultipartFile multipartFile) throws IOException {
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        entreprise.setLogo(fileName);
-        entreprise sevedEntreprise = entrepriseRepository.save(entreprise);
-        String uploadDir = "./images/Entreprises/"+sevedEntreprise.getId();
-        Path uploadPath = Paths.get(uploadDir);
-        if(!Files.exists(uploadPath)) {
-            try {
-                Files.createDirectories(uploadPath);
+        if(!multipartFile.isEmpty()) {
+            String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            entreprise.setLogo(fileName);
+            entreprise sevedEntreprise = entrepriseRepository.save(entreprise);
+            String uploadDir = "./images/Entreprises/" + sevedEntreprise.getId();
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                try {
+                    Files.createDirectories(uploadPath);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            try (InputStream inputStream = multipartFile.getInputStream()) {
+                Path filePath = uploadPath.resolve(fileName);
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new IOException("Could not save uploaded file : " + fileName);
             }
         }
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            throw new IOException("Could not save uploaded file : "+fileName);
-        }
+        else
+            entrepriseRepository.save(entreprise);
         return "redirect:/admin/entreprises";
     }
 
