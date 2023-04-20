@@ -128,4 +128,12 @@ public class organisme {
     public void setVille(com.smartcity.affairesmodule.entities.ville ville) {
         this.ville = ville;
     }
+
+    @Transient
+    public String getLogoPath() {
+        if(logo == null || id_organisme == null) {
+            return null;
+        }
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
+    }
 }

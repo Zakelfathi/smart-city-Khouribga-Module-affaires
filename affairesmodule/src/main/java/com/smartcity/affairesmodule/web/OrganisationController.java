@@ -59,7 +59,7 @@ public class OrganisationController {
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
             organisation.setLogo(fileName);
             organisation sevedOrganisation = organisationRepository.save(organisation);
-            String uploadDir = "./images/Organisations/" + sevedOrganisation.getId();
+            String uploadDir = "./images/Organismes/" + sevedOrganisation.getId();
             Path uploadPath = Paths.get(uploadDir);
             if (!Files.exists(uploadPath)) {
                 try {

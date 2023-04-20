@@ -51,5 +51,11 @@ public class dashboardController {
         return "dashboard/home";
     }
 
-
+    @RequestMapping(value="/editor/edit-organisme")
+    public String organismeView(Model model, Long id) {
+        organisme organisme = organismRepository.getById(id);
+        model.addAttribute("title", organisme.getNom()+" view");
+        model.addAttribute("organisme", organisme);
+        return "/dashboard/organismeView";
+    }
 }

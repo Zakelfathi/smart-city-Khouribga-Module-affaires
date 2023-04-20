@@ -25,7 +25,7 @@ public class AffairesmoduleApplication {
 			villeRepository.save(v);
 			entreprise e = new entreprise();
 			e.setNom("OCP");
-			e.setDescription("");
+			e.setDescription("Le groupe OCP, fondé le 7 août 1920 au Maroc et transformé en 2008 en une société anonyme, est le premier exportateur de phosphate brut, d’acide phosphorique et d’engrais phosphatés dans le monde.");
 			e.setFormJuridique("SA");
 			e.setDateCreation(new Date(1920, 8, 7));
 			e.setAdresse("2, rue Al Abtal, Hay Erraha, Casablanca");

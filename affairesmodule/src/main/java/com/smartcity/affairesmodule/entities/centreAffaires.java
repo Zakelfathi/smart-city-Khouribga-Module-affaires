@@ -38,6 +38,6 @@ public class centreAffaires extends organisme {
         if(logo == null || id_organisme == null) {
             return null;
         }
-        return "../../../../images/CentresAffaires/"+id_organisme+"/"+logo;
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
     }
 }
