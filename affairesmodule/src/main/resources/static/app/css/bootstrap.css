@@ -510,9 +510,9 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
-  height: auto;
+  height: 320px;
 }
+
 
 .img-thumbnail {
   padding: 0.25rem;
