@@ -510,8 +510,15 @@ mark,
 }
 
 .img-fluid {
+<<<<<<< Updated upstream
   max-width: 100%;
   height: auto;
+=======
+  /*height: 320px;*/
+  max-width: 200px;
+  height: auto;
+  float: left;
+>>>>>>> Stashed changes
 }
 
 .img-thumbnail {

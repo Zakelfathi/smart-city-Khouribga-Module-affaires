@@ -2181,7 +2181,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-btn {
   background-color: #fff;
-  padding: 8px 40px;
+  padding: 8px 270px;
   font-weight: 600;
   color: #222;
   box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.1);
@@ -2194,7 +2194,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-btn:hover {
   border: 1px solid #fff;
   background: transparent;
-  color: #fff;
+  color: #1f1f1f;
 }
 
 .info-area .info-thumb {

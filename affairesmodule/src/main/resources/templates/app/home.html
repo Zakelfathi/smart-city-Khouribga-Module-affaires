@@ -10,59 +10,80 @@
 </head>
 <body>
 <div layout:fragment="content">
-      <section class="default-banner active-blog-slider">
+      <section class="default-banner ">
           <div class="item-slider relative" style="background: url(/app/img/slider1.jpg);background-size: cover;">
               <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
               <div class="container">
                   <div class="row fullscreen justify-content-center align-items-center">
                       <div class="col-md-10 col-12">
                           <div class="banner-content text-center">
-                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
-                              <h1 class="text-uppercase text-white">New Adventure</h1>
-                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                  eiusmod temp <br>
-                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                              <a href="#" class="text-uppercase header-btn">Discover Now</a>
+
+                                  <h4 class="text-white mb-20 text-uppercase">avec une population de plus de [[${ville.population}]] personnes, la ville de</h4>
+                                  <h1 class="text-uppercase text-white">[[${ville.nom}]]</h1>
+
+                              <p class="text-white">vous offre un milieux convenable pour votre business. [[${ville.nom}]] le business leader a [[${ville.province}]]<br>
+                                  .</p>
+<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
+<!--                              <form method="get" th:action="@{/search}">-->
+<!--                                  <input type="text" name="q" placeholder="Search for an organism...">-->
+<!--                                  <button type="submit">Search</button>-->
+<!--                              </form>-->
+<!--                              <form method="GET" th:action="@{/entreprises}" >-->
+<!--                                  <div class="form-group">-->
+<!--                                      <label for="nom">Recherche:</label>-->
+<!--                                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez le nom de l'organisme">-->
+<!--                                  </div>-->
+<!--                                  <button type="submit" class="btn btn-primary">Rechercher</button>-->
+<!--                              </form>-->
+
+                              <form method="GET" th:action="@{/entreprises}">
+                                  <div class="form-group">
+                                      <input type="text" class="text-uppercase header-btn" id="search" name="nom_search" placeholder="trouver un organisme">
+                                      <input type="hidden" id="selected_entreprise_id" name="selected_entreprise_id" value=""/>
+                                      <div id="suggestions"></div>
+                                  </div>
+                              </form>
+
                           </div>
                       </div>
 
                   </div>
               </div>
           </div>
-          <div class="item-slider relative" style="background: url(/app/img/slider2.jpg);background-size: cover;">
-              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
-              <div class="container">
-                  <div class="row fullscreen justify-content-center align-items-center">
-                      <div class="col-md-10 col-12">
-                          <div class="banner-content text-center">
-                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
-                              <h1 class="text-uppercase text-white">New Trip</h1>
-                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                  eiusmod temp <br>
-                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                              <a href="#" class="text-uppercase header-btn">Discover Now</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="item-slider relative" style="background: url(/app/img/slider3.jpg);background-size: cover;">
-              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
-              <div class="container">
-                  <div class="row fullscreen justify-content-center align-items-center">
-                      <div class="col-md-10 col-12">
-                          <div class="banner-content text-center">
-                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
-                              <h1 class="text-uppercase text-white">New Experience</h1>
-                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                  eiusmod temp <br>
-                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                              <a href="#" class="text-uppercase header-btn">Discover Now</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+<!--          <div class="item-slider relative" style="background: url(/app/img/slider2.jpg);background-size: cover;">-->
+<!--              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>-->
+<!--              <div class="container">-->
+<!--                  <div class="row fullscreen justify-content-center align-items-center">-->
+<!--                      <div class="col-md-10 col-12">-->
+<!--                          <div class="banner-content text-center">-->
+<!--                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>-->
+<!--                              <h1 class="text-uppercase text-white">New Trip</h1>-->
+<!--                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do-->
+<!--                                  eiusmod temp <br>-->
+<!--                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>-->
+<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--          <div class="item-slider relative" style="background: url(/app/img/slider3.jpg);background-size: cover;">-->
+<!--              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>-->
+<!--              <div class="container">-->
+<!--                  <div class="row fullscreen justify-content-center align-items-center">-->
+<!--                      <div class="col-md-10 col-12">-->
+<!--                          <div class="banner-content text-center">-->
+<!--                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>-->
+<!--                              <h1 class="text-uppercase text-white">New Experience</h1>-->
+<!--                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do-->
+<!--                                  eiusmod temp <br>-->
+<!--                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>-->
+<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </div>-->
       </section>
 </div>
 

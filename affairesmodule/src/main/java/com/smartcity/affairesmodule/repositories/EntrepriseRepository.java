@@ -19,4 +19,8 @@ public interface EntrepriseRepository extends JpaRepository<entreprise, Long> {
 
 
 
+
+    List<entreprise> findByNomContainingIgnoreCase(String nom);
+
+    List<entreprise> findByNomContainingIgnoreCaseAndVille(String term, Optional<ville> ville);
 }

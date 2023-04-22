@@ -18,6 +18,17 @@
     <!-- Site Title -->
     <title>@{title}</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-5W1BDcIyEUVzJtCw8tKjso2QGZtYzHlilJ8KppWtDBMp33t8P30jKpASzJV1yfZO/FT9M9tv53LuPjOYI/lmHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-YRvQXzjDUg7f4Yn4HD+7Veg8FNRa/C7VQJlAJca38+T9XCNPhLwgDEzZTNJByUMbyK7AaLVf0myV7JNVQs/Cag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!--
     CSS
     ============================================= -->
@@ -28,6 +39,7 @@
     <link rel="stylesheet" th:href="@{/app/css/owl.carousel.css}" href="../../static/app/css/owl.carousel.css" />
     <link rel="stylesheet" th:href="@{/app/css/main.css}" href="../../static/app/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 
 </head>
 <body>
@@ -161,5 +173,33 @@
 <script th:src="@{/app/js/jquery.counterup.min.js}"></script>
 <script th:src="@{/app/js/waypoints.min.js}"></script>
 <script th:src="@{/app/js/main.js}"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#search').typeahead({
+            source: function(query, result) {
+                $.ajax({
+                    url: '/suggestions',
+                    data: 'term=' + query,
+                    dataType: 'json',
+                    type: 'GET',
+                    success: function(data) {
+                        result($.map(data, function(item) {
+                            return item.nom_search;
+                        }));
+                    }
+                });
+            },
+            minLength: 3,
+            updater: function(item) {
+                window.location.href = '/entreprises?nom_search=' + item;
+                return item;
+            }
+        });
+    });
+</script>
+
+
 </body>
 </html>
