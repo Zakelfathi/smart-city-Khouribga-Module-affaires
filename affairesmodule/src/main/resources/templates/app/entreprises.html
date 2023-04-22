@@ -12,57 +12,45 @@
 <div layout:fragment="content">
 
     <!-- Start project Area -->
-    <section class="project-area section-gap" id="project">
+    <section class="project-area " id="project" th:each="entreprise : ${entreprises}">
+        <br/>
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-30 col-lg-8">
+                <div class="menu-content col-lg-8">
                     <div class="title text-center">
-                        <h1 class="mb-10">Latest Project on the go</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            <br> labore et dolore magna aliqua.</p>
+                        <h1 class="mb-10" th:text="${entreprise.nom}"></h1>
+                        <p th:text="${entreprise.description}"></p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center d-flex">
                 <div class="active-works-carousel mt-40 col-lg-8">
                     <div class="item">
-                        <img class="img-fluid" src="/app/img/why.jpg" alt="">
+                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
                         <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Vector Illustration</h6>
-                            <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work
-                                have <br> allowed humanity to create slimmer, more portable technology.</p>
+                            <h6 class="text-uppercase">Nombre d'employees</h6>
+                            <p th:text="${entreprise.nombreEmployes}"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-fluid" src="/app/img/why.jpg" alt="">
+                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
                         <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Vector Illustration</h6>
-                            <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work
-                                have <br> allowed humanity to create slimmer, more portable technology.</p>
+                            <h6 class="text-uppercase">Forme juridique</h6>
+                            <p th:text="${entreprise.formJuridique}"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-fluid" src="/app/img/why.jpg" alt="">
+                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
                         <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Vector Illustration</h6>
-                            <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work
-                                have <br> allowed humanity to create slimmer, more portable technology.</p>
+                            <h6 class="text-uppercase">Chiffre d'affaires (CA)</h6>
+                            <p th:text="${entreprise.chiffreAffaires}"></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-fluid" src="/app/img/why.jpg" alt="">
+                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
                         <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Vector Illustration</h6>
-                            <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work
-                                have <br> allowed humanity to create slimmer, more portable technology.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid" src="/app/img/why.jpg" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Vector Illustration</h6>
-                            <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work
-                                have <br> allowed humanity to create slimmer, more portable technology.</p>
+                            <h6 class="text-uppercase">Secteur d'activites</h6>
+                            <p th:text="${entreprise.secteurActivite}"></p>
                         </div>
                     </div>
                 </div>
