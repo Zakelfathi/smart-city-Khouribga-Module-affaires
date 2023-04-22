@@ -11,6 +11,8 @@ public class photo {
     String url;
     @ManyToOne
     organisme organisme;
+    @ManyToOne
+    photoType type;
 
     public photo() {
     }
@@ -43,5 +45,13 @@ public class photo {
 
     public void setOrganisme(com.smartcity.affairesmodule.entities.organisme organisme) {
         this.organisme = organisme;
+    }
+
+    public photoType getType() {
+        return type;
+    }
+
+    public void setType(photoType type) {
+        this.type = type;
     }
 }

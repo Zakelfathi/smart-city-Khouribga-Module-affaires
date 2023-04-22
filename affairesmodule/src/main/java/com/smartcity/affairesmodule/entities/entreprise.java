@@ -59,6 +59,6 @@ public class entreprise extends organisme {
         if(logo == null || id_organisme == null) {
             return null;
         }
-        return "../../../../images/Entreprises/"+id_organisme+"/"+logo;
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
     }
 }

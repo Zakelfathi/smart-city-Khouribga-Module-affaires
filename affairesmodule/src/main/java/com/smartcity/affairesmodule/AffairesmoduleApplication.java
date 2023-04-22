@@ -1,8 +1,10 @@
 package com.smartcity.affairesmodule;
 
 import com.smartcity.affairesmodule.entities.entreprise;
+import com.smartcity.affairesmodule.entities.photoType;
 import com.smartcity.affairesmodule.entities.ville;
 import com.smartcity.affairesmodule.repositories.EntrepriseRepository;
+import com.smartcity.affairesmodule.repositories.PhotoTypeRepository;
 import com.smartcity.affairesmodule.repositories.VilleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +21,13 @@ public class AffairesmoduleApplication {
 	}
 
 	@Bean
-	CommandLineRunner start(VilleRepository villeRepository, EntrepriseRepository entrepriseRepository) {
+	CommandLineRunner start(VilleRepository villeRepository, EntrepriseRepository entrepriseRepository, PhotoTypeRepository photoTypeRepository) {
 		return args -> {
 			ville v = new ville("Khouribga", "Béni Mellal - Khenifra", "Maroc", 542125);
 			villeRepository.save(v);
 			entreprise e = new entreprise();
 			e.setNom("OCP");
-			e.setDescription("");
+			e.setDescription("Le groupe OCP, fondé le 7 août 1920 au Maroc et transformé en 2008 en une société anonyme, est le premier exportateur de phosphate brut, d’acide phosphorique et d’engrais phosphatés dans le monde.");
 			e.setFormJuridique("SA");
 			e.setDateCreation(new Date(1920, 8, 7));
 			e.setAdresse("2, rue Al Abtal, Hay Erraha, Casablanca");
@@ -106,6 +108,11 @@ public class AffairesmoduleApplication {
 			entreprise5.setSecteurActivite("Technologie");
 			entreprise5.setLogo("logo.png");
 			entrepriseRepository.save(entreprise5);
+
+			photoTypeRepository.save(new photoType(1L, "Logo"));
+			photoTypeRepository.save(new photoType(2L, "Couverture"));
+			photoTypeRepository.save(new photoType(3L, "Description"));
+			photoTypeRepository.save(new photoType(4L, "Carousel"));
 		};
 	}
 }

@@ -1,6 +1,7 @@
 package com.smartcity.affairesmodule.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -127,5 +128,41 @@ public class organisme {
 
     public void setVille(com.smartcity.affairesmodule.entities.ville ville) {
         this.ville = ville;
+    }
+
+    @Transient
+    public String getLogoPath() {
+        if(logo == null || id_organisme == null) {
+            return null;
+        }
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
+    }
+
+    @Transient
+    public String getCouverturePath() {
+        for (photo photo : photos) {
+            if(photo.getType().getId() == 2)
+                return "../../../../images/Organismes/"+id_organisme+"/"+photo.getUrl();
+        }
+        return getLogoPath();
+    }
+
+    @Transient
+    public String getDescriptionPhotoPath() {
+        for (photo photo : photos) {
+            if(photo.getType().getId() == 3)
+                return "../../../../images/Organismes/"+id_organisme+"/"+photo.getUrl();
+        }
+        return getLogoPath();
+    }
+
+    @Transient
+    public List<photo> getCarouselPhotos() {
+        List<photo> photosCarousel = new ArrayList<photo>();
+        for (photo photo : photos) {
+            if(photo.getType().getId() == 4)
+                photosCarousel.add(photo);
+        }
+        return photosCarousel;
     }
 }
