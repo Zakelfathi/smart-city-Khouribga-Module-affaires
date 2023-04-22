@@ -11,6 +11,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface VilleRepository extends JpaRepository<ville, Long> {
+<<<<<<< Updated upstream
+=======
+    ville getById(Long id_ville);
+>>>>>>> Stashed changes
 
 
 
