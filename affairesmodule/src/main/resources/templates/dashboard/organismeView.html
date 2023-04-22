@@ -10,7 +10,7 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <div class="page-header min-height-300 border-radius-xl mt-4" th:style="'background:url('+${organisme.logoPath}+ '); background-repeat: no-repeat, repeat; background-position: center; background-size: cover;'">
+        <div class="page-header min-height-300 border-radius-xl mt-4" th:style="'background:url('+${organisme.couverturePath}+ '); background-repeat: no-repeat, repeat; background-position: center; background-size: cover;'">
             <span class="mask  bg-gradient-gray  opacity-6"></span>
         </div>
         <div class="card card-body mx-3 mx-md-4 mt-n6">
@@ -86,14 +86,6 @@
                                     </div>
                                     <div class="card-body p-3">
                                         <h5>Logo</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -101,19 +93,11 @@
                                 <div class="card card-blog card-plain">
                                     <div class="card-header p-0 mt-n4 mx-3">
                                         <a class="d-block shadow-xl border-radius-xl">
-                                            <img th:src="${organisme.logoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                            <img th:src="${organisme.couverturePath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                         </a>
                                     </div>
                                     <div class="card-body p-3">
                                         <h5>Couverture</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,86 +105,61 @@
                                 <div class="card card-blog card-plain">
                                     <div class="card-header p-0 mt-n4 mx-3">
                                         <a class="d-block shadow-xl border-radius-xl">
-                                            <img th:src="${organisme.logoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                            <img th:src="${organisme.DescriptionPhotoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                         </a>
                                     </div>
                                     <div class="card-body p-3">
                                         <h5>Description</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-5 ps-3">
+                            <h6 class="mb-1">Photos du carousel</h6>
+                        </div>
                         <div class="row">
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4" th:each="c:${organisme.carouselPhotos}">
                                 <div class="card card-blog card-plain">
                                     <div class="card-header p-0 mt-n4 mx-3">
                                         <a class="d-block shadow-xl border-radius-xl">
-                                            <img th:src="${organisme.logoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                            <img th:src="'../../../../images/Organismes/'+${organisme.id}+'/'+${c.url}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                         </a>
                                     </div>
                                     <div class="card-body p-3">
-                                        <h5>Logo</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="card-header p-0 mt-n4 mx-3">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img th:src="${organisme.logoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <h5>Couverture</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                                <div class="card card-blog card-plain">
-                                    <div class="card-header p-0 mt-n4 mx-3">
-                                        <a class="d-block shadow-xl border-radius-xl">
-                                            <img th:src="${organisme.logoPath}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                                        </a>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <h5>Description</h5>
-                                        <div class="ms-auto">
-                                            <a href=""
-                                               class="btn btn-link text-danger text-gradient px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
-                                            <a href=""
-                                               class="btn btn-link text-dark px-3 mb-0"><i
-                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
-                                        </div>
+                                        <a th:href="@{delete-carousel-photo(id=${c.id}, organismeId=${organisme.id})}" class="btn btn-link text-danger text-gradient px-3 mb-0"><i class="material-icons text-sm me-2">delete</i>Delete</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-header pb-0 p-3">
+                    <div class="row">
+                        <div class="col-6 d-flex align-items-center">
+                            <h6 class="mb-0">Update or Upload Photos</h6>
+                        </div>
+                    </div>
+                </div>
+                <form th:action="@{update-photo}" method="POST" enctype="multipart/form-data">
+                    <input hidden name="id" th:value="${organisme.id}"/>
+                    <div class="row">
+                        <div class="col-md-6 mb-md-0 mb-4 mt-4">
+                            <div class="input-group input-group-outline">
+                                <input type="file" name="photo" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-md-0 mb-4 mt-4">
+                            <select class="selectpicker btn btn-outline-light text-dark" title="Type de la photo" name="photoType">
+                                <option th:each="t:${listPhotoTypes}" th:text="${t.nom}" th:value="${t.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-4">
+                            <button class="btn bg-gradient-dark mb-0" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
