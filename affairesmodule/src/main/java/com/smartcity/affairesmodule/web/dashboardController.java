@@ -2,9 +2,11 @@ package com.smartcity.affairesmodule.web;
 
 import com.smartcity.affairesmodule.entities.entreprise;
 import com.smartcity.affairesmodule.entities.organisme;
+import com.smartcity.affairesmodule.entities.Evenements;
 import com.smartcity.affairesmodule.entities.photoType;
 import com.smartcity.affairesmodule.entities.photo;
 import com.smartcity.affairesmodule.repositories.*;
+import com.sun.xml.bind.util.AttributesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ import java.util.List;
 @Controller
 public class dashboardController {
 
+
+    @Autowired
+    private historiqueRepository evenementsRepository;
     @Autowired
     private VilleRepository villeRepository;
     @Autowired
@@ -57,7 +62,7 @@ public class dashboardController {
 
 
 
-        return "dashboard/home";
+        return "/dashboard/home";
     }
 
     @RequestMapping(value="/editor/edit-organisme")
@@ -70,6 +75,17 @@ public class dashboardController {
         model.addAttribute("activePage", "dashboard");
         return "/dashboard/organismeView";
     }
+
+
+
+    @PostMapping("/admin/dashboard/add-evenement")
+    public String addEvenement(@ModelAttribute("evenement") Evenements evenement, Model model) {
+        evenementsRepository.save(evenement);
+        model.addAttribute("evenement", new Evenements());
+        model.addAttribute("villes", villeRepository.findAll());
+        return "redirect:/dashboard/formEvenement";
+    }
+
 
     @RequestMapping(value="/editor/update-photo", method = RequestMethod.POST)
     public String updatePhoto(Model model,

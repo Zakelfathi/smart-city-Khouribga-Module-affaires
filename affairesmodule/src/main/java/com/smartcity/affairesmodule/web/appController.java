@@ -1,18 +1,12 @@
 package com.smartcity.affairesmodule.web;
 
-import com.smartcity.affairesmodule.entities.entreprise;
-import com.smartcity.affairesmodule.entities.ville;
-import com.smartcity.affairesmodule.entities.centreAffaires;
-import com.smartcity.affairesmodule.entities.organisation;
-import com.smartcity.affairesmodule.repositories.CentreAffaireRepository;
-import com.smartcity.affairesmodule.repositories.OrganisationRepository;
+import com.smartcity.affairesmodule.entities.*;
+import com.smartcity.affairesmodule.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.smartcity.affairesmodule.repositories.VilleRepository;
-import com.smartcity.affairesmodule.repositories.EntrepriseRepository;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +23,11 @@ public class appController {
     @Autowired
     private OrganisationRepository OrganisationRepository;
 
+    @Autowired
+    private historiqueRepository evenementsRepository;
+
+
+
     @GetMapping("/home")
     public String home(Model model,
                        @RequestParam(name="page", defaultValue="0") int page,
@@ -41,9 +40,12 @@ public class appController {
         return "app/home";
     }
 
+
+
     @GetMapping("/historique")
     public String historique(Model model) {
-
+        List<Evenements> evenements = evenementsRepository.findAll();
+        model.addAttribute("evenements", evenements);
         return "app/historique";
     }
     @GetMapping("/entreprises")
