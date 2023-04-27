@@ -11,6 +11,7 @@ public class Evenements {
     private Long id;
     private String nom;
     @Column(length = 10000000)
+
     private String description;
     private String date;
     @ManyToOne
