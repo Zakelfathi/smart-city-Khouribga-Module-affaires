@@ -17,6 +17,8 @@ public class ville {
     private String description;
     @OneToMany(mappedBy = "ville", fetch = FetchType.LAZY)
     private List<organisme> organismes;
+    @OneToMany(mappedBy = "ville", fetch = FetchType.LAZY)
+    private List<Evenements> evenements;
 
     public ville() {
     }
