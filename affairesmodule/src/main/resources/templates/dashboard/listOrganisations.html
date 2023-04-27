@@ -66,7 +66,7 @@
                                                 <img th:src="@{${o.logoPath}}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                                             </div>
                                             <div class="my-auto">
-                                                <h6 class="mb-0 text-sm" th:text="${o.nom}"></h6>
+                                                <a th:href="@{/editor/edit-organisme(id=${o.id})}"><h6 class="mb-0 text-sm" th:text="${o.nom}"></h6></a>
                                             </div>
                                         </div>
                                     </td>

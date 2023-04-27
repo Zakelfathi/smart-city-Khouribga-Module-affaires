@@ -10,81 +10,170 @@
 </head>
 <body>
 <div layout:fragment="content">
-      <section class="default-banner ">
-          <div class="item-slider relative" style="background: url(/app/img/slider1.jpg);background-size: cover;">
+      <section class="default-banner active-blog-slider">
+          <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/khouribga.jpg);background-size: cover;">
               <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
               <div class="container">
                   <div class="row fullscreen justify-content-center align-items-center">
                       <div class="col-md-10 col-12">
                           <div class="banner-content text-center">
-
-                                  <h4 class="text-white mb-20 text-uppercase">avec une population de plus de [[${ville.population}]] personnes, la ville de</h4>
-                                  <h1 class="text-uppercase text-white">[[${ville.nom}]]</h1>
-
-                              <p class="text-white">vous offre un milieux convenable pour votre business. [[${ville.nom}]] le business leader a [[${ville.province}]]<br>
-                                  .</p>
-<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
-<!--                              <form method="get" th:action="@{/search}">-->
-<!--                                  <input type="text" name="q" placeholder="Search for an organism...">-->
-<!--                                  <button type="submit">Search</button>-->
-<!--                              </form>-->
-<!--                              <form method="GET" th:action="@{/entreprises}" >-->
-<!--                                  <div class="form-group">-->
-<!--                                      <label for="nom">Recherche:</label>-->
-<!--                                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez le nom de l'organisme">-->
-<!--                                  </div>-->
-<!--                                  <button type="submit" class="btn btn-primary">Rechercher</button>-->
-<!--                              </form>-->
-
-                              <form method="GET" th:action="@{/entreprises}">
-                                  <div class="form-group">
-                                      <input type="text" class="text-uppercase header-btn" id="search" name="nom_search" placeholder="trouver un organisme">
-                                      <input type="hidden" id="selected_entreprise_id" name="selected_entreprise_id" value=""/>
-                                      <div id="suggestions"></div>
-                                  </div>
-                              </form>
-
+                              <h4 class="text-white mb-20 text-uppercase">avec une population de plus de [[${ville.population}]] personnes, la ville de</h4>
+                              <h1 class="text-uppercase text-white">[[${ville.nom}]]</h1>
+                              <p class="text-white">vous offre un milieux convenable pour votre business. [[${ville.nom}]] le business leader a [[${ville.province}]].<br></p>
+                              <a href="#about" class="text-uppercase header-btn">Découvrez maintenant</a>
                           </div>
                       </div>
 
                   </div>
               </div>
           </div>
-<!--          <div class="item-slider relative" style="background: url(/app/img/slider2.jpg);background-size: cover;">-->
-<!--              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>-->
-<!--              <div class="container">-->
-<!--                  <div class="row fullscreen justify-content-center align-items-center">-->
-<!--                      <div class="col-md-10 col-12">-->
-<!--                          <div class="banner-content text-center">-->
-<!--                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>-->
-<!--                              <h1 class="text-uppercase text-white">New Trip</h1>-->
-<!--                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do-->
-<!--                                  eiusmod temp <br>-->
-<!--                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>-->
-<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
-<!--                          </div>-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--              </div>-->
-<!--          </div>-->
-<!--          <div class="item-slider relative" style="background: url(/app/img/slider3.jpg);background-size: cover;">-->
-<!--              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>-->
-<!--              <div class="container">-->
-<!--                  <div class="row fullscreen justify-content-center align-items-center">-->
-<!--                      <div class="col-md-10 col-12">-->
-<!--                          <div class="banner-content text-center">-->
-<!--                              <h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>-->
-<!--                              <h1 class="text-uppercase text-white">New Experience</h1>-->
-<!--                              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do-->
-<!--                                  eiusmod temp <br>-->
-<!--                                  or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>-->
-<!--                              <a href="#" class="text-uppercase header-btn">Discover Now</a>-->
-<!--                          </div>-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--              </div>-->
-<!--          </div>-->
+          <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/OCP.jpg);background-size: cover;">
+              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+              <div class="container">
+                  <div class="row fullscreen justify-content-center align-items-center">
+                      <div class="col-md-10 col-12">
+                          <div class="banner-content text-center">
+                              <h4 class="text-white mb-20 text-uppercase">Le leader mondial de l'industrie des phosphates</h4>
+                              <h1 class="text-uppercase text-white">OCP Group</h1>
+                              <p class="text-white">Découvrir les projets ambitieux qui contribuent au développement constant de la ville.</p>
+                              <a th:href="@{entreprise(id=1)}" class="text-uppercase header-btn">Découvrez maintenant</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/1337-2.jpg);background-size: cover;">
+              <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+              <div class="container">
+                  <div class="row fullscreen justify-content-center align-items-center">
+                      <div class="col-md-10 col-12">
+                          <div class="banner-content text-center">
+                              <h4 class="text-white mb-20 text-uppercase">L'innovation est le clé de développement</h4>
+                              <h1 class="text-uppercase text-white">1337</h1>
+                              <p class="text-white">Découvrir les projets ambitieux qui contribuent au développement constant de la ville.</p>
+                              <a th:href="@{organisation(id=8)}" class="text-uppercase header-btn">Découvrez maintenant</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </section>
+
+    <section class="section-gap info-area" id="about">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-40 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Une vue sur Khouribga</h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-info row mt-40">
+                <div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
+                    <div class="info-thumb" style="background: url(../../../../images/Ville/Khouribga/description.jpg);background-size: cover;width:555px;hight:666px;">
+                        <div class="container">
+                            <div class="fullscreen justify-content-center align-items-center">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 no-padding info-rigth">
+                    <div class="info-content">
+                        <h2 class="pb-30">Khouribga en bref</h2>
+                        <p th:text="${ville.description}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Khouribga en chiffres</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="counter-left col-lg-2 col-md-2">
+                <div class="single-facts">
+                    <h2 class="counter">5962</h2>
+                    <p>Population</p>
+                </div>
+            </div>
+            <div class="counter-left col-lg-2 col-md-2">
+                <div class="single-facts">
+                    <h2 class="counter">2394</h2>
+                    <p>Entreprises</p>
+                </div>
+            </div>
+            <div class="counter-left col-lg-2 col-md-2">
+                <div class="single-facts">
+                    <h2 class="counter">1439</h2>
+                    <p>Organisations</p>
+                </div>
+            </div>
+            <div class="counter-left col-lg-2 col-md-2">
+                <div class="single-facts">
+                    <h2 class="counter">933</h2>
+                    <p>Ecole</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Médias</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="counter-left col-lg-6 col-md-12">
+                <div class="single-facts">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4K5BhKuQJT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; muted" autoplay muted loop allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="counter-left col-lg-6 col-md-12">
+                <div class="single-facts">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/q8mDxHV9Oa0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Carte et Contacts</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="counter-left col-lg-6 col-md-12">
+                <div class="single-facts">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53610.46144553472!2d-6.958493325580706!3d32.880877079186874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda427fa6cc01abd%3A0x81e42d2370814027!2sKhouribga!5e0!3m2!1sfr!2sma!4v1682567231370!5m2!1sfr!2sma" width="560" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="counter-left col-lg-6 col-md-12">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feature mb-30">
+                        <div class="title d-flex flex-row pb-20">
+                            <h4><a href="">Administration locale ville</a></h4>
+                        </div>
+                        <p>0523564854</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>

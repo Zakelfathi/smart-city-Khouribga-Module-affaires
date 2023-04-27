@@ -60,7 +60,7 @@ public class EntrepriseController {
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
             entreprise.setLogo(fileName);
             entreprise sevedEntreprise = entrepriseRepository.save(entreprise);
-            String uploadDir = "./images/Entreprises/" + sevedEntreprise.getId();
+            String uploadDir = "./images/Organismes/" + sevedEntreprise.getId();
             Path uploadPath = Paths.get(uploadDir);
             if (!Files.exists(uploadPath)) {
                 try {

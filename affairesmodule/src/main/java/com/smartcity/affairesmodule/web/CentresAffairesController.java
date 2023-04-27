@@ -59,7 +59,7 @@ public class CentresAffairesController {
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
             centreAffaires.setLogo(fileName);
             centreAffaires sevedCentreAffaires = centreAffaireRepository.save(centreAffaires);
-            String uploadDir = "./images/CentresAffaires/" + sevedCentreAffaires.getId();
+            String uploadDir = "./images/Organismes/" + sevedCentreAffaires.getId();
             Path uploadPath = Paths.get(uploadDir);
             if (!Files.exists(uploadPath)) {
                 try {

@@ -59,6 +59,12 @@ public class entreprise extends organisme {
         if(logo == null || id_organisme == null) {
             return null;
         }
-        return "../../../../images/Entreprises/"+id_organisme+"/"+logo;
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
+    }
+
+    @Transient
+    public String chiffreAffaireToBillions() {
+        double billions = this.chiffreAffaires / 1000000000;
+        return billions+" milliards USD";
     }
 }

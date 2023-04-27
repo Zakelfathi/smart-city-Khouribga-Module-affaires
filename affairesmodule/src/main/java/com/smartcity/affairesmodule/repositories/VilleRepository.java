@@ -11,15 +11,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface VilleRepository extends JpaRepository<ville, Long> {
-<<<<<<< Updated upstream
-=======
-    ville getById(Long id_ville);
->>>>>>> Stashed changes
-
-
 
     @Query("SELECT e FROM entreprise e WHERE LOWER(e.nom) LIKE LOWER(concat('%', :nom, '%'))")
     public Page<entreprise> chercher(@Param("nom") String nom, Pageable pageable);
-
 
 }

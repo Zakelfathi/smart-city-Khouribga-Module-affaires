@@ -1,27 +1,35 @@
 package com.smartcity.affairesmodule.web;
 
+import com.smartcity.affairesmodule.entities.entreprise;
+import com.smartcity.affairesmodule.entities.ville;
+import com.smartcity.affairesmodule.entities.centreAffaires;
+import com.smartcity.affairesmodule.entities.organisation;
+import com.smartcity.affairesmodule.repositories.CentreAffaireRepository;
+import com.smartcity.affairesmodule.repositories.OrganisationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< Updated upstream
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 import com.smartcity.affairesmodule.repositories.VilleRepository;
 import com.smartcity.affairesmodule.repositories.EntrepriseRepository;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-
 import java.util.List;
 import java.util.Optional;
->>>>>>> Stashed changes
 
 @Controller
 public class appController {
 
+    @Autowired
+    private VilleRepository VilleRepository;
+    @Autowired
+    private EntrepriseRepository EntrepriseRepository;
+    @Autowired
+    private CentreAffaireRepository CentreAffairesRepository;
+    @Autowired
+    private OrganisationRepository OrganisationRepository;
+
     @GetMapping("/home")
-<<<<<<< Updated upstream
-    public String home(Model model) {
-=======
     public String home(Model model,
                        @RequestParam(name="page", defaultValue="0") int page,
                        @RequestParam(name="size", defaultValue="5") int size,
@@ -30,8 +38,6 @@ public class appController {
 
         model.addAttribute("ville", ville);
         model.addAttribute("title", "Home");
->>>>>>> Stashed changes
-
         return "app/home";
     }
 
@@ -41,9 +47,6 @@ public class appController {
         return "app/historique";
     }
     @GetMapping("/entreprises")
-<<<<<<< Updated upstream
-    public String entreprises(Model model) {
-=======
     public String entreprises(Model model,
                               @RequestParam(name="page", defaultValue="0") int page,
                               @RequestParam(name="size", defaultValue="5") int size,
@@ -55,13 +58,18 @@ public class appController {
         if (nom_search.isEmpty()) {
             entreprises = EntrepriseRepository.findByVille(ville); // get the entreprises related to the ville
         } else {
-           entreprises = EntrepriseRepository.findByNomContainingIgnoreCase(nom_search);
+            entreprises = EntrepriseRepository.findByNomContainingIgnoreCase(nom_search);
         }
         model.addAttribute("entreprises", entreprises);
         model.addAttribute("title", "Entreprises");
->>>>>>> Stashed changes
-
         return "app/entreprises";
+    }
+
+    @GetMapping("/entreprise")
+    public String entreprises(Model model, @RequestParam(name = "id") Long id) {
+        entreprise entreprise = EntrepriseRepository.getById(id);
+        model.addAttribute("entreprise", entreprise);
+        return "app/entreprise";
     }
 
     @GetMapping("/suggestions")
@@ -71,17 +79,34 @@ public class appController {
         return EntrepriseRepository.findByNomContainingIgnoreCaseAndVille(term, ville);
     }
 
-
-
-
     @GetMapping("/affaires")
     public String affaires(Model model) {
+        List<centreAffaires> centresAffaires = CentreAffairesRepository.findAll();
+        model.addAttribute("centresAffaires", centresAffaires);
         return "app/affaires";
     }
-    @GetMapping("/gallerie")
-    public String gallerie(Model model) {
-        return "app/gallerie";
+
+    @GetMapping("/centre-affaires")
+    public String affaires(Model model, @RequestParam(name = "id") Long id) {
+        centreAffaires centreAffaires = CentreAffairesRepository.getById(id);
+        model.addAttribute("centreAffaires", centreAffaires);
+        return "app/centreAffaires";
     }
+
+    @GetMapping("/organisations")
+    public String organisations(Model model) {
+        List<organisation> organisations = OrganisationRepository.findAll();
+        model.addAttribute("organisations", organisations);
+        return "app/organisations";
+    }
+
+    @GetMapping("/organisation")
+    public String organisations(Model model, @RequestParam(name = "id") Long id) {
+        organisation organisation = OrganisationRepository.getById(id);
+        model.addAttribute("organisation", organisation);
+        return "app/organisation";
+    }
+
     @GetMapping("/contact_us")
     public String contactus(Model model) {
         return "app/contactus";

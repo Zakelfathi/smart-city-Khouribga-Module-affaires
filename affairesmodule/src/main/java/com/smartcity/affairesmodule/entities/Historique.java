@@ -12,8 +12,8 @@ public class Historique extends ville {
         super();
     }
 
-    public Historique(Long id_ville, String nom, String province, String pays, int population, List<organisme> organismes, String histoire, int anneeDeCreation) {
-        super(id_ville, nom, province, pays, population, organismes);
+    public Historique(Long id_ville, String nom, String province, String pays, int population, String description, List<organisme> organismes, String histoire, int anneeDeCreation) {
+        super(id_ville, nom, province, pays, population, description, organismes);
         this.histoire = histoire;
         this.anneeDeCreation = anneeDeCreation;
     }

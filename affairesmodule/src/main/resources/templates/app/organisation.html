@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{app/layout}"
+      layout:decorator="app/layout">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${organisation.nom}"></title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <section class="default-banner">
+            <div class="item-slider relative" th:style="'background: url('+${organisation.couverturePath}+');background-position: center;background-repeat: no-repeat;'">
+                <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+                <div class="container">
+                    <div class="row fullscreen justify-content-center align-items-center">
+                        <div class="col-md-10 col-12">
+                            <div class="banner-content text-center">
+                                <h1 class="text-uppercase text-white" th:text="${organisation.nom}"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="whole-wrap">
+
+            <div class="container">
+                <div class="section-top-border">
+                    <h3 class="text-heading">[[${organisation.nom}]] en bref</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img th:src="${organisation.descriptionPhotoPath}" style="width:100px;" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-9 mt-sm-20">
+                            <p th:text="${organisation.description}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--           Informations         -->
+                <div class="section-top-border">
+                    <h3 class="mb-30">Informations</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-defination">
+                                <h4 class="mb-20">Mission</h4>
+                                <p th:text="${organisation.mission}"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-defination">
+                                <h4 class="mb-20">Nombre de memebres</h4>
+                                <p th:text="${organisation.numberMembers}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-defination">
+                                <h4 class="mb-20">Date de création</h4>
+                                <p th:text="${organisation.dateCreation}"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-defination">
+                                <h4 class="mb-20">Site Web</h4>
+                                <a th:href="@{'http://'+${organisation.siteweb}}"><p th:text="${organisation.siteweb}"></p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--        Gallery        -->
+                <div class="section-top-border">
+                    <h3>Gallery</h3>
+                    <div class="row gallery-item">
+                        <div class="col-md-4" th:each="photo:${organisation.carouselPhotos}">
+                            <a th:href="@{'../../../../images/Organismes/'+${organisation.id}+'/'+${photo.url}}" class="img-pop-up"><div class="single-gallery-image" th:style="'background: url(../../../../images/Organismes/'+${organisation.id}+'/'+${photo.url}+');'"></div></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- start contact Area -->
+                <section class="contact-area section-gap" id="contact">
+                    <div class="container section-top-border">
+                        <div class="row d-flex justify-content-center">
+                            <div class="menu-content pb-60 col-lg-8">
+                                <div class="title text-center">
+                                    <h1 class="mb-10">Contact</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="myForm" action="#" method="post" class="contact-form text-right form-area">
+                            <div class="row">
+                                <div class="col-lg-6 form-group">
+                                    <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+
+                                    <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+                                    <input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                    <button class="primary-btn mt-20">Send Message<span class="lnr lnr-arrow-right"></span></button>
+                                    <div class="alert-msg">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single-defination">
+                                    <h4 class="mb-20">Téléphone</h4>
+                                    <p th:text="${organisation.tel}"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single-defination">
+                                    <h4 class="mb-20">Email</h4>
+                                    <p th:text="${organisation.email}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end contact Area -->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

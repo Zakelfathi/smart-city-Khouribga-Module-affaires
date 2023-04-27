@@ -39,6 +39,6 @@ public class organisation extends organisme {
         if(logo == null || id_organisme == null) {
             return null;
         }
-        return "../../../../images/Organisations/"+id_organisme+"/"+logo;
+        return "../../../../images/Organismes/"+id_organisme+"/"+logo;
     }
 }

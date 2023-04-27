@@ -1950,7 +1950,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.p1-gradient-bg, .primary-btn, .primary-btn2:hover, .single-feature:hover, .video-area .overlay-bg, .single-footer-widget .click-btn, .generic-banner {
+.p1-gradient-bg, .primary-btn, .primary-btn2:hover, .video-area .overlay-bg, .single-footer-widget .click-btn, .generic-banner {
   background-image: -moz-linear-gradient(0deg, #b21aff 0%, #732bde 100%);
   background-image: -webkit-linear-gradient(0deg, #b21aff 0%, #732bde 100%);
   background-image: -ms-linear-gradient(0deg, #b21aff 0%, #732bde 100%);
@@ -2355,7 +2355,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .single-feature {
-  background-color: #f9f9ff;
+  /*background-color: #f9f9ff;*/
   padding: 30px 30px 15px 30px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -2369,12 +2369,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .single-feature:hover {
   cursor: pointer;
-  color: #fff;
+  /* color: #fff; */
 }
 
-.single-feature:hover a, .single-feature:hover .title .lnr {
+/*.single-feature:hover a, .single-feature:hover .title .lnr {
   color: #fff;
-}
+}*/
 
 .single-feature .title .lnr {
   color: #222;
