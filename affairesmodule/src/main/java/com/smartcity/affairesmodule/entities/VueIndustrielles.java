@@ -12,8 +12,8 @@ public class VueIndustrielles extends ville {
         super();
     }
 
-    public VueIndustrielles(Long id_ville, String nom, String province, String pays, int population, List<organisme> organismes, String industrie, int nbEntreprises) {
-        super(id_ville, nom, province, pays, population, organismes);
+    public VueIndustrielles(Long id_ville, String nom, String province, String pays, int population, String description, List<organisme> organismes, String industrie, int nbEntreprises) {
+        super(id_ville, nom, province, pays, population, description, organismes);
         this.industrie = industrie;
         this.nbEntreprises = nbEntreprises;
     }

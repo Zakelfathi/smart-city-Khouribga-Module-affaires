@@ -6,98 +6,96 @@
       layout:decorator="app/layout">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}"></title>
+    <title>Affaires</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <!-- Start feature Area -->
-    <section class="feature-area section-gap" id="secvice">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-8">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Some Features that Made us Unique</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature mb-30">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-user"></span>
-                            <h4><a href="#">Expert Technicians</a></h4>
+
+    <section class="default-banner">
+        <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/entreprises-background.jpg);background-size: cover;background-position: center;">
+            <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-md-10 col-12">
+                        <div class="banner-content text-center">
+                            <h1 class="text-uppercase text-white">Affaires</h1>
                         </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature mb-30">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-license"></span>
-                            <h4><a href="#">Professional Service</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature mb-30">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-phone"></span>
-                            <h4><a href="#">Great Support</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-rocket"></span>
-                            <h4><a href="#">Technical Skills</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-diamond"></span>
-                            <h4><a href="#">Highly Recomended</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 ">
-                    <div class="single-feature">
-                        <div class="title d-flex flex-row pb-20">
-                            <span class="lnr lnr-bubble"></span>
-                            <h4><a href="#">Positive Reviews</a></h4>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advancement of technology and
-                            power.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End feature Area -->
+
+    <div class="main-wrapper">
+
+        <!-- Start list Enterprises -->
+        <section class="feature-area section-gap" id="secvice">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">Quelques centres d'affaires les plus célèbres</h1>
+                            <p>En savoir plus sur l'environnement entrepreneurial de la ville.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" th:each="centreAffaires: ${centresAffaires}">
+                            <div class="single-feature mb-30">
+                                <div class="title d-flex flex-row pb-20">
+                                    <div class="country">
+                                        <img th:src="${centreAffaires.logoPath}" style="height: 30px;"/>
+                                    </div>
+                                    <h4><a th:href="@{centre-affaires(id=${centreAffaires.id})}" th:text="${centreAffaires.nom}"></a></h4>
+                                </div>
+                                <p th:text="${centreAffaires.description}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End list Entreprises -->
+
+        <div class="container mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Centres Affaires en chiffres</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">5962</h2>
+                        <p>Entreprises</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">2394</h2>
+                        <p>Industries</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">1439</h2>
+                        <p>Téchnologies</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">933</h2>
+                        <p>Jeunes Entreprises</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 

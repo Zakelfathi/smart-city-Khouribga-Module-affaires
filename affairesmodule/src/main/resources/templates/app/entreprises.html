@@ -11,53 +11,89 @@
 <body>
 <div layout:fragment="content">
 
-    <!-- Start project Area -->
-    <section class="project-area " id="project" th:each="entreprise : ${entreprises}">
-        <br/>
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content col-lg-8">
-                    <div class="title text-center">
-                        <h1 class="mb-10" th:text="${entreprise.nom}"></h1>
-                        <p th:text="${entreprise.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center d-flex">
-                <div class="active-works-carousel mt-40 col-lg-8">
-                    <div class="item">
-                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Nombre d'employees</h6>
-                            <p th:text="${entreprise.nombreEmployes}"></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Forme juridique</h6>
-                            <p th:text="${entreprise.formJuridique}"></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Chiffre d'affaires (CA)</h6>
-                            <p th:text="${entreprise.chiffreAffaires}"></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid" th:src="@{${entreprise.getLogoPath()}}" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">Secteur d'activites</h6>
-                            <p th:text="${entreprise.secteurActivite}"></p>
+    <section class="default-banner">
+        <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/entreprises-background2.jpg);background-size: cover;background-position: center;">
+            <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-md-10 col-12">
+                        <div class="banner-content text-center">
+                            <h1 class="text-uppercase text-white">Entreprises</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End project Area -->
+
+    <div class="main-wrapper">
+
+        <!-- Start list Enterprises -->
+        <section class="feature-area section-gap" id="secvice">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">Quelques entreprises les plus célèbres</h1>
+                            <p>En savoir plus sur l'environnement entrepreneurial de la ville.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" th:each="entreprise: ${entreprises}">
+                            <div class="single-feature mb-30">
+                                <div class="title d-flex flex-row pb-20">
+                                    <div class="country">
+                                        <img th:src="${entreprise.logoPath}" style="height: 30px;"/>
+                                    </div>
+                                    <h4><a th:href="@{entreprise(id=${entreprise.id})}" th:text="${entreprise.nom}"></a></h4>
+                                </div>
+                                <p th:text="${entreprise.description}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End list Entreprises -->
+
+        <div class="container mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Les entreprises en chiffres</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">5962</h2>
+                        <p>Entreprises</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">2394</h2>
+                        <p>Industries</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">1439</h2>
+                        <p>Téchnologies</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">933</h2>
+                        <p>Jeunes Entreprises</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </div>

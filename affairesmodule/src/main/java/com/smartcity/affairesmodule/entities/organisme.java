@@ -12,6 +12,7 @@ public class organisme {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id_organisme;
     String nom;
+    @Column(length = 1000000)
     String description;
     String adresse;
     @Temporal(TemporalType.DATE)

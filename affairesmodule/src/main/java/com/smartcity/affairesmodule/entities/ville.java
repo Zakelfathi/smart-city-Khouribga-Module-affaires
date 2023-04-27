@@ -13,18 +13,21 @@ public class ville {
     private String province;
     private String pays;
     private int population;
+    @Column( length = 100000 )
+    private String description;
     @OneToMany(mappedBy = "ville", fetch = FetchType.LAZY)
     private List<organisme> organismes;
 
     public ville() {
     }
 
-    public ville(Long id, String nom, String province, String pays, int population, List<organisme> organismes) {
+    public ville(Long id, String nom, String province, String pays, int population, String description, List<organisme> organismes) {
         this.id_ville = id;
         this.nom = nom;
         this.province = province;
         this.pays = pays;
         this.population = population;
+        this.description = description;
         this.organismes = organismes;
     }
 
@@ -81,5 +84,13 @@ public class ville {
 
     public void setOrganismes(List<organisme> organismes) {
         this.organismes = organismes;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

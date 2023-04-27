@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{app/layout}"
+      layout:decorator="app/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Organisations</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+  <section class="default-banner">
+    <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/organisation-background.jpg);background-size: cover;background-position: center;">
+      <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+      <div class="container">
+        <div class="row fullscreen justify-content-center align-items-center">
+          <div class="col-md-10 col-12">
+            <div class="banner-content text-center">
+              <h1 class="text-uppercase text-white">Organisations</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="main-wrapper">
+
+    <!-- Start list Enterprises -->
+    <section class="feature-area section-gap" id="secvice">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="menu-content pb-60 col-lg-8">
+            <div class="title text-center">
+              <h1 class="mb-10">Quelques organisations les plus célèbres</h1>
+              <p>En savoir plus sur l'environnement entrepreneurial de la ville.</p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6" th:each="organisation: ${organisations}">
+              <div class="single-feature mb-30">
+                <div class="title d-flex flex-row pb-20">
+                  <div class="country">
+                    <img th:src="${organisation.logoPath}" style="height: 30px;"/>
+                  </div>
+                  <h4><a th:href="@{organisation(id=${organisation.id})}" th:text="${organisation.nom}"></a></h4>
+                </div>
+                <p th:text="${organisation.description}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End list Entreprises -->
+
+    <div class="container mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="menu-content pb-60 col-lg-8">
+          <div class="title text-center">
+            <h1 class="mb-10">Organisations en chiffres</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="counter-left col-lg-2 col-md-2">
+          <div class="single-facts">
+            <h2 class="counter">5962</h2>
+            <p>Entreprises</p>
+          </div>
+        </div>
+        <div class="counter-left col-lg-2 col-md-2">
+          <div class="single-facts">
+            <h2 class="counter">2394</h2>
+            <p>Industries</p>
+          </div>
+        </div>
+        <div class="counter-left col-lg-2 col-md-2">
+          <div class="single-facts">
+            <h2 class="counter">1439</h2>
+            <p>Téchnologies</p>
+          </div>
+        </div>
+        <div class="counter-left col-lg-2 col-md-2">
+          <div class="single-facts">
+            <h2 class="counter">933</h2>
+            <p>Jeunes Entreprises</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>

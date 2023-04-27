@@ -510,7 +510,10 @@ mark,
 }
 
 .img-fluid {
-  height: 320px;
+  /*height: 320px;*/
+  max-width: 200px;
+  height: auto;
+  float: left;
 }
 
 

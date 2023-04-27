@@ -12,8 +12,8 @@ public class Evenements extends ville {
         super();
     }
 
-    public Evenements(Long id_ville, String nom, String province, String pays, int population, List<organisme> organismes, String description, String date) {
-        super(id_ville, nom, province, pays, population, organismes);
+    public Evenements(Long id_ville, String nom, String province, String pays, int population, String description_ville, List<organisme> organismes, String description, String date) {
+        super(id_ville, nom, province, pays, population, description_ville, organismes);
         this.description = description;
         this.date = date;
     }
