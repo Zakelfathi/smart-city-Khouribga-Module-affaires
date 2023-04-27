@@ -219,11 +219,6 @@ CREATE TABLE IF NOT EXISTS `ville` (
   `pays` varchar(255) DEFAULT NULL,
   `population` int(11) NOT NULL,
   `province` varchar(255) DEFAULT NULL,
-  `date` varchar(255) DEFAULT NULL,
-  `annee_de_creation` int(11) DEFAULT NULL,
-  `histoire` varchar(255) DEFAULT NULL,
-  `industrie` varchar(255) DEFAULT NULL,
-  `nb_entreprises` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_ville`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -231,8 +226,8 @@ CREATE TABLE IF NOT EXISTS `ville` (
 -- Déchargement des données de la table `ville`
 --
 
-INSERT INTO `ville` (`dtype`, `id_ville`, `description`, `nom`, `pays`, `population`, `province`, `date`, `annee_de_creation`, `histoire`, `industrie`, `nb_entreprises`) VALUES
-('ville', 1, 'Khouribga est une ville du Maroc qui se situe à 120 km au sud-est de Casablanca. Cette cité minière est considérée comme la plus importante zone de production de phosphates du monde. L’Office chérifien des phosphates (OCP), la première entreprise publique du Maroc, exploite la zone minière du bassin d\'Ouled Abdoun et gère en partie les infrastructures sportives et sociales de la ville. Khouribga est connue par ses activités culturelles comme l\'organisation de festivals et de journées culturelles et artistiques, pour ses activités sportives : football, tennis, rugby à XV, golf, natation, handball, basketball, volleyball, karting, athlétisme…, la plupart de ces clubs dépendent de l\'Olympique Club de Khouribga (OCK) et le Hassania de Khouribga (HUSK).', 'Khouribga', 'Maroc', 542125, 'Béni Mellal - Khenifra', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ville` (`dtype`, `id_ville`, `description`, `nom`, `pays`, `population`, `province`) VALUES
+('ville', 1, 'Khouribga est une ville du Maroc qui se situe à 120 km au sud-est de Casablanca. Cette cité minière est considérée comme la plus importante zone de production de phosphates du monde. L’Office chérifien des phosphates (OCP), la première entreprise publique du Maroc, exploite la zone minière du bassin d\'Ouled Abdoun et gère en partie les infrastructures sportives et sociales de la ville. Khouribga est connue par ses activités culturelles comme l\'organisation de festivals et de journées culturelles et artistiques, pour ses activités sportives : football, tennis, rugby à XV, golf, natation, handball, basketball, volleyball, karting, athlétisme…, la plupart de ces clubs dépendent de l\'Olympique Club de Khouribga (OCK) et le Hassania de Khouribga (HUSK).', 'Khouribga', 'Maroc', 542125, 'Béni Mellal - Khenifra');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

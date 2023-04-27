@@ -1,27 +1,39 @@
 package com.smartcity.affairesmodule.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Evenements extends ville {
+public class Evenements {
+
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nom;
+    @Column(length = 10000000)
     private String description;
     private String date;
+    @ManyToOne
+    private ville ville;
 
     public Evenements() {
-        super();
+
     }
 
-    public Evenements(Long id_ville, String nom, String province, String pays, int population, String description_ville, List<organisme> organismes, String description, String date) {
-        super(id_ville, nom, province, pays, population, description_ville, organismes);
+    public Evenements(Long id, String nom, String description, String date, com.smartcity.affairesmodule.entities.ville ville) {
+        this.id = id;
+        this.nom = nom;
         this.description = description;
         this.date = date;
+        this.ville = ville;
     }
 
-    public Evenements(String nom, String province, String pays, int population, String description, String date) {
-        super(nom, province, pays, population);
-        this.description = description;
-        this.date = date;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -38,6 +50,22 @@ public class Evenements extends ville {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public com.smartcity.affairesmodule.entities.ville getVille() {
+        return ville;
+    }
+
+    public void setVille(com.smartcity.affairesmodule.entities.ville ville) {
+        this.ville = ville;
     }
 }
 
