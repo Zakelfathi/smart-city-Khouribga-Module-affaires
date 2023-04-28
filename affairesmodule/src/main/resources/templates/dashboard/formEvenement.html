@@ -10,36 +10,51 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <form method="POST" th:action="@{addEvenement}" th:object="${evenement}">
-        <input type="hidden" th:field="*{id}" />
-        <div>
-            <label for="nom">Nom:</label>
-            <input type="text" id="nom" th:field="*{nom}" />
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3" th:text="${title}"></h6>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+
+                    <div class="container p-4">
+                        <form method="POST" th:action="@{saveEvenement}" th:object="${evenement}">
+                            <input type="text" hidden class="form-control" name="ville" value="1">
+                            <input type="hidden" name="id" th:value="${evenement.id}" />
+                            <div class="row p-1">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline">
+                                        <input type="text" name="nom" class="form-control" th:value="${evenement.nom}" placeholder="Nom de l'évenemet"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline">
+                                        <input name="description" class="form-control" th:value="${evenement.description}" placeholder="Description"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row p-1">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-outline">
+                                        <input type="date" name="date" class="form-control" th:value="${evenement.date}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 p-1">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-outline-info btn-sm mb-0 me-3">Enregistrer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
-        <div>
-            <label for="description">Description:</label>
-            <textarea id="description" th:field="*{description}" ></textarea>
-        </div>
-
-        <div>
-            <label for="date">Date:</label>
-            <input type="text" id="date" th:field="*{date}" />
-        </div>
-
-        <div>
-            <label for="ville">Ville:</label>
-            <select id="ville" th:field="*{ville.id}">
-                <option th:each="ville : ${villes}" th:value="${ville.id}" th:text="${ville.nom}"></option>
-            </select>
-
-        </div>
-
-        <div>
-            <button type="submit">Save</button>
-        </div>
-    </form>
-
+    </div>
 </div>
 </body>
 </html>

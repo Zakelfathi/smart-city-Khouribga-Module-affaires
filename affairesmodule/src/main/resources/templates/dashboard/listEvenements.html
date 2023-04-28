@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/layout}"
+      layout:decorator="dashboard/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Evenements</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Evenements</h6>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <form class="row p-4 row-cols-sm-auto g-2 align-items-center" th:action="@{evenements}" method="get">
+                        <div class="col-md-4">
+                            <div class="input-group input-group-outline">
+                                <input class="form-control" placeholder="Nom" type="text" name="nom" th:value="${nom}"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-info btn-sm mb-0 me-3">Chercher</button>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <a class="btn bg-gradient-dark mb-0" th:href="@{add-evenement}">
+                                <i class="material-icons text-sm">add</i>&nbsp;&nbsp;Ajouter Evenement
+                            </a>
+                        </div>
+                    </form>
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                            <tr>
+                                <th>
+                                    Nom
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="e:${listEvenements}">
+                                <td>
+                                    <div class="d-flex px-2">
+                                        <div class="my-auto">
+                                            <h6 class="mb-0 text-sm" th:text="${e.nom}"></h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="text-xs font-weight-bold" th:text="${e.date}"></span>
+                                </td>
+                                <td class="align-middle">
+                                    <div class="ms-auto">
+                                        <a th:href="@{delete-evenement(id=${e.id},page=${pageCourante},size=${size},nom=${nom})}" class="btn btn-link text-danger text-gradient px-3 mb-0" ><i class="material-icons text-sm me-2">delete</i>Delete</a>
+                                        <a th:href="@{edit-evenement(id=${e.id})}" class="btn btn-link text-dark px-3 mb-0" ><i class="material-icons text-sm me-2">edit</i>Edit</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container">
+                        <ul class="nav">
+                            <li th:each="page,status:${pages}">
+                                <a th:href="@{evenements(page=${status.index},size=${size},nom=${nom})}" th:text="${status.index}" th:class="${pageCourante}==${status.index}?'btn btn-gradient-info active':'btn btn-link'"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
