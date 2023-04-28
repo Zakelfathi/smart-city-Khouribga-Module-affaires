@@ -19,12 +19,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin();
+        http.formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/default", true)
+                .failureUrl("/login-error")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login");
         http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
         http.authorizeRequests().antMatchers("/editor/**").hasRole("EDITOR");
         http.authorizeRequests().anyRequest().permitAll();
     }
-
-    @Autowired
-    private LoginSuccessHandler loginSuccessHandlerr;
 }

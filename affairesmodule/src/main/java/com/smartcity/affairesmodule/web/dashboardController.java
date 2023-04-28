@@ -6,12 +6,16 @@ import com.smartcity.affairesmodule.entities.photoType;
 import com.smartcity.affairesmodule.entities.photo;
 import com.smartcity.affairesmodule.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -116,4 +120,36 @@ public class dashboardController {
         photoRepository.deleteById(id);
         return "redirect:/editor/edit-organisme?id="+organismeId;
     }
+
+    // Login form
+    @RequestMapping("/login")
+    public String login() {
+        return "/app/login";
+    }
+
+    // Login form with error
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "/app/login";
+    }
+
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+        new SecurityContextLogoutHandler().logout(request, response, authentication);
+        return "redirect:/login?logout=true";
+    }
+
+    @RequestMapping("/default")
+    public String successPage(HttpServletRequest request) {
+        if(request.isUserInRole("ADMIN")) {
+            return "redirect:/admin/dashboard";
+        } else if (request.isUserInRole("EDITOR")) {
+            return "redirect:/editor/edit-organisme?id=1";
+        }
+        else {
+            return "redirect:/home";
+        }
+    }
+
 }
