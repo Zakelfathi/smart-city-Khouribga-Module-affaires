@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https:/www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,13 +71,17 @@
                         <li><a th:href="@{/organisations}">Organisations</a></li>
                         <li><a th:href="@{/contact_us}">contact us </a></li>
                         <!-- Dropdown -->
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" th:href="@{/home}" id="navbardrop" data-toggle="dropdown">
-                                <i class="fas fa-user"></i>&nbsp;Username
+                        <li sec:authorize="!isAuthenticated()">
+                            <a th:href="@{/login}">
+                                <i class="fas fa-user"></i>&nbspLogin
+                            </a>
+                        </li>
+                        <li class="dropdown" sec:authorize="isAuthenticated()">
+                            <a class="dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                                <i class="fas fa-user"></i>&nbsp;<span sec:authentication="name"></span>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" th:href="@{/profile}">Profile</a>
-                                <a class="dropdown-item" th:href="@{/home}">Log out</a>
+                                <a class="dropdown-item" th:href="@{/logout}">Log out</a>
                             </div>
                         </li>
                     </ul>
