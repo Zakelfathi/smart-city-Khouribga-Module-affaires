@@ -6,54 +6,94 @@
       layout:decorator="app/layout">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}"></title>
+    <title>Historique</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <!-- Start about Area -->
-    <section class="section-gap info-area" id="about">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-40 col-lg-8">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Why Choose Us Your Fitness Builder</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="single-info row mt-40">
-                <div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
-                    <div class="info-thumb">
-                        <img src="/app/img/about-img.jpg" class="img-fluid" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 no-padding info-rigth">
-                    <div class="info-content">
-                        <h2 class="pb-30">We Realize that <br>
-                            there are reduced <br>
-                            Wastege Stand out</h2>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                            conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                        </p>
-                        <br>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                            conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                            conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                        </p>
-                        <br>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                            conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                        </p>
+
+    <section class="default-banner">
+        <div class="item-slider relative" style="background: url(../../../../images/Ville/Khouribga/fossiles.jpg);background-size: cover;background-position: center;">
+            <div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-md-10 col-12">
+                        <div class="banner-content text-center">
+                            <h1 class="text-uppercase text-white">Histoire</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End about Area -->
+
+    <div class="main-wrapper">
+
+        <!-- Start list Enterprises -->
+        <section class="feature-area section-gap" id="secvice">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">La ville des phosphates</h1>
+                            <p>Khouribga et la Découverte des phosphates
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End list Entreprises -->
+        <section class="about-generic-area pb-100">
+            <div class="container border-top-generic" th:each="evenement : ${evenements}">
+                <h3 class="about-title mb-30" th:text="${evenement.nom}"></h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="img-text">
+                            <img src="img/a2.jpg" alt="" class="img-fluid float-left mr-20 mb-20">
+                            <p th:text="${evenement.description}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Generic Start -->
+        <div class="container mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Centres Affaires en chiffres</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">5962</h2>
+                        <p>Entreprises</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">2394</h2>
+                        <p>Industries</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">1439</h2>
+                        <p>Téchnologies</p>
+                    </div>
+                </div>
+                <div class="counter-left col-lg-2 col-md-2">
+                    <div class="single-facts">
+                        <h2 class="counter">933</h2>
+                        <p>Jeunes Entreprises</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 </body>

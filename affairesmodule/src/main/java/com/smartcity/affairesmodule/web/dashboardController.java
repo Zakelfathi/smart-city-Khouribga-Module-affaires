@@ -57,7 +57,7 @@ public class dashboardController {
 
 
 
-        return "dashboard/home";
+        return "/dashboard/home";
     }
 
     @RequestMapping(value="/editor/edit-organisme")
